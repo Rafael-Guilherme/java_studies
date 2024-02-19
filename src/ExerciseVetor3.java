@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 import entities.ProductVector;
 
-
-public class Main {
+public class ExerciseVetor3 {
     public static void main(String[] args) {
 
         Locale.setDefault(Locale.US);
