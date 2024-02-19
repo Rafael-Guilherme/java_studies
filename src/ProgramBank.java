@@ -10,11 +10,13 @@ public class ProgramBank {
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+        BankAccount bankAccount;
+
 
         System.out.print("Enter account number: ");
         int accountNumber = sc.nextInt();
-        sc.nextLine();
         System.out.print("Enter account holder: ");
+        sc.nextLine();
         String accountHolder = sc.nextLine();
         System.out.print("Is there an initial deposit (y/n)? ");
         char answerDeposit = sc.next().charAt(0);
@@ -23,16 +25,15 @@ public class ProgramBank {
         if (answerDeposit == 'y') {
             System.out.print("Enter initial deposit value: ");
             initialDeposit = sc.nextDouble();
+            bankAccount = new BankAccount(accountNumber, accountHolder, initialDeposit);
         } else {
-            System.out.print("Enter initial deposit value: ");
-            initialDeposit = 0.00;
+            bankAccount = new BankAccount(accountNumber, accountHolder);
         }
 
-        BankAccount bankAccount = new BankAccount(accountNumber, accountHolder, initialDeposit);
         System.out.println(" ");
 
         System.out.println("Account Data:");
-        System.out.printf("Account %d, Holder: %s, Balance: $ %.2f%n", bankAccount.getAccountNumber(), bankAccount.getAccountOwner(), bankAccount.getInitialDeposit());
+        System.out.println(bankAccount);
         System.out.println(" ");
 
         System.out.print("Enter a deposit value: ");
@@ -40,7 +41,7 @@ public class ProgramBank {
         bankAccount.deposit(depositValue);
 
         System.out.println("Updated account data:");
-        System.out.printf("Account %d, Holder: %s, Balance: $ %.2f%n", bankAccount.getAccountNumber(), bankAccount.getAccountOwner(), bankAccount.getInitialDeposit());
+        System.out.println(bankAccount);
         System.out.println(" ");
 
         System.out.print("Enter a withdraw value: ");
@@ -48,7 +49,7 @@ public class ProgramBank {
         bankAccount.withdraw(withdrawValue);
 
         System.out.println("Updated account data:");
-        System.out.printf("Account %d, Holder: %s, Balance: $ %.2f%n", bankAccount.getAccountNumber(), bankAccount.getAccountOwner(), bankAccount.getInitialDeposit());
+        System.out.println(bankAccount);
 
         sc.close();
     }
