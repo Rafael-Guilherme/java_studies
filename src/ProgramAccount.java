@@ -30,5 +30,8 @@ public class ProgramAccount {
             acc5.updateBalance();
             System.out.println("Update");
         }
+
+        System.out.println(acc);
+        System.out.println(acc1);
     }
 }
